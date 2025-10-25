@@ -1,0 +1,22 @@
+# Configuration 1: Fast voltage response, slow theta response
+name: 'slow_voltage_slow_theta'
+
+voltage_config:
+  type: 'first_order'
+  param_ranges:
+    ref_value: [1.0, 1.0]  # Fixed reference value
+    k: [1.0, 2.0]          # Moderate k = slower than theta
+    noise_amplitude: [0.0, 0.03]
+    omega_noise: [0.5, 1.5]
+  y0_ranges:
+    initial_value: [0.7, 1.2]
+
+theta_config:
+  type: 'first_order'
+  param_ranges:
+    ref_value: [0.0, 0.0]  # Fixed reference value
+    k: [1.0, 3.0]          # Low k = slow response
+    noise_amplitude: [0.0, 0.05]
+    omega_noise: [0.1, 0.5]
+  y0_ranges:
+    initial_value: [-0.5, 0.5]

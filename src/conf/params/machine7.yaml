@@ -1,0 +1,15 @@
+D: 2
+E_fd: 1
+H: 5.06
+P_m: 0.7
+Rs: 0
+T_d_dash: 4.75
+T_q_dash: 1.6
+X_d: 1.25
+X_d_dash: 0.232
+X_q: 1.22
+X_q_dash: 0.715
+X_d_dash_dash: 0.2 #kundur p.153
+T_d_dash_dash: 0.05
+X_q_dash_dash: 0.25
+T_q_dash_dash: 0.04

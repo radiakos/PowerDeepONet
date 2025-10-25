@@ -1,0 +1,22 @@
+# Configuration 2: Slow voltage response, fast theta response
+name: 'fast_voltage_fast_theta'
+
+voltage_config:
+  type: 'second_order'
+  param_ranges:
+    ref_value: [1.0, 1.0]   # Fixed reference value
+    zeta: [0.6, 0.8]        # High damping = fast settling
+    omega_n: [8.0, 12.0]    # High frequency = fast response
+  y0_ranges:
+    initial_value: [0.7, 1.2]
+    initial_derivative: [-0.2, 0.2]
+
+theta_config:
+  type: 'second_order'
+  param_ranges:
+    ref_value: [0.0, 0.0]   # Fixed reference value
+    zeta: [0.2, 0.4]        # Low damping = oscillatory
+    omega_n: [10.0, 18.0]   # High frequency = fast oscillations
+  y0_ranges:
+    initial_value: [-0.5, 0.5]
+    initial_derivative: [-0.8, 0.8]

@@ -1,0 +1,29 @@
+- name: "SM_IB"
+  keys: ["theta", "omega", "E_d_dash", "E_q_dash"]
+  keys_ext: [ "Vs", "theta_vs"]
+  full_name: "Synchronous Machine with Infinite Bus"
+
+- name: "SM4"
+  keys: ["theta", "omega", "E_d_dash", "E_q_dash"]
+  keys_ext: ["Vs", "theta_vs"]
+  full_name: "Synchronous Machine with 4 states open loop"
+
+- name: "SM4_P"
+  keys: ["theta", "omega", "E_d_dash", "E_q_dash"]
+  keys_ext: ["P_m", "Vs", "theta_vs"]
+  full_name: "Synchronous Machine with 4 states open loop with Pm"
+
+- name: "SM6"
+  keys: ["theta", "omega", "E_d_dash", "E_q_dash", "E_d_dash_dash", "E_q_dash_dash"]
+  keys_ext: [ "Vs", "theta_vs"]
+  full_name: "Synchronous Machine with 6 states open loop"
+
+- name: "SM_AVR"
+  keys: ["theta", "omega", "E_d_dash", "E_q_dash", "R_F", "V_r", "E_fd"]
+  keys_ext: ["Vs", "theta_vs"]
+  full_name: "Synchronous Machine with Automatic Voltage Regulator open loop"
+
+- name: "SM_AVR_GOV"
+  keys: ["theta", "omega", "E_d_dash", "E_q_dash", "R_F", "V_r", "E_fd", "P_sv", "P_m"]
+  keys_ext: ["Vs", "theta_vs"]
+  full_name: "Synchronous Machine with Automatic Voltage Regulator and Governor open loop"

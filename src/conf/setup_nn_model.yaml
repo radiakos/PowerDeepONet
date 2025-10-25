@@ -1,0 +1,4 @@
+DeepONet_model:
+  hidden_layers : 3
+  hidden_dim : 64
+

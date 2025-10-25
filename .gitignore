@@ -1,0 +1,8 @@
+__pycache__/
+.vscode/
+*.pyc
+*.py[cod]
+training_plots/
+data_o_e/
+model_o_e/
+wandb/

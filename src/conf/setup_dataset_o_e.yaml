@@ -1,0 +1,28 @@
+wandb:
+  api_key: "add your wandb key here"
+  project: "Neural Operators for Power Systems"
+
+time : 1 # Total time
+num_of_points : 1000 # Number of points
+save_freq : 1000 # Save batches of nth trajectories
+PINN_flag : False # True if PINN is to be used
+flag_for_precision : False # True if double precision is to be used
+seed : 37
+
+model:
+  model_flag : "SM4" #  Choose between "SM_IB" or "SM4" or "SM_AVR" or "SM_AVR_GOV" or "SM4_P"
+  machine_num : 7
+  init_condition_bounds : 1
+  sampling: "Lhs" # Choose between "Lhs" or "Linear" or "Random"
+  torch : False
+
+dataset:
+  train_labelled_traj : 1000
+  train_colloc_traj : 1000
+  val_labelled_traj : 100
+  test_labelled_traj : 100
+
+dirs:
+  params_dir :  src/conf/params
+  init_conditions_dir : src/conf/initial_conditions_o_e
+  dataset_dir : data_o_e

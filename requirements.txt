@@ -1,0 +1,10 @@
+omegaconf
+torch
+wandb
+numpy
+pyDOE
+scipy
+matplotlib
+pytorch-optimizer
+h5py
+tqdm

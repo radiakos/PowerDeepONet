@@ -1,0 +1,54 @@
+wandb:
+  api_key: "add your wandb key here"
+  project: "Neural Operators for Power Systems "
+
+time : 1 # Total time to be considered
+num_of_points : 1000 # To be used when defining new collocation points, num per second, e.g. 1000*1s = 5K points
+modelling_method : True # Modelling approach to be followed, ddelta = omega or ddelta = omega*Omega_B
+seed : 37
+flag_for_precision : False # True if double precision is to be used
+
+# SM IB v4
+model:
+  model_flag : "SM4" #  Choose between "SM_IB" or "SM" or "SM_AVR" or "SM_AVR_GOV"
+  machine_num : 7 # Set of machine parameters to be used
+  init_condition_bounds : 1 # Set of initial conditions for the collocation points to be used
+  sampling: "Lhs" # Choose between "Lhs" or "Linear" or "Random" for sampling the initial conditions for collocation points
+  torch : True # Keep it True when training the model! and also using to create the collocation points
+  
+dataset:
+  number : 1 # Number of dataset to be used 
+  shuffle: True # Shuffle the trajectories of the dataset # If True, the dataset will be shuffled
+  split_ratio: 0.8 # Train and validation/test split ratio, the rest is splitted equally for validation/test
+  new_coll_points_flag : True # Use new collocation points or use from the dataset
+
+
+nn: 
+  type : "DeepONetUnstackedf" # Choose between "StaticNN" or "DynamicNN" or "PinnA" or "PinnB" or "PinnAA" this is the adj target one 
+  hidden_layers : 3
+  hidden_dim : 64
+  branch_input : 2000
+  trunk_input_dim : 1
+  output_dim : 4
+  activation_function: "tanh"
+  loss_criterion : "MSELoss" # Choose between "MSELoss" or "L1Loss" or "SmoothL1Loss"
+  optimizer : "SOAP" # Choose between "Adam" or "SGD" or "RMSprop" or "LBFGS" or "SOAP"
+  weight_init: "xavier_normal" # Choose between "xavier_normal" or "xavier_uniform" or "kaiming_normal" or "kaiming_uniform" or "normal"
+  lr: 0.001
+  lr_scheduler : "No_scheduler" # Choose between "StepLR", "MultiStepLR", "ExponentialLR", "ReduceLROnPlateau", "No_scheduler"
+  num_epochs: 10000 # change inside train.py if not ADAM optimizer
+  batch_size: "None"  
+  early_stopping: True 
+  early_stopping_patience: 200
+  early_stopping_min_delta: 1e-6
+  weighting:
+    flag_mean_weights : True # Create individual weights for each residual term of loss dt and loss pinn or not
+    update_weight_method : "Static" # Choose between "Static", "ReLoBRaLo", "Dynamic", "Sam", "Gradient", "Ntk"
+    update_weights_freq : 50 # if Dynamic or Sam, value must be >=1
+    weights: [1, 1e-3, 1e-4, 1e-3] # [1, 1e-3, 1e-4, 1e-3] [0, 0, 1e-4, 1e-3]
+
+dirs:
+  params_dir :  src/conf/params #${hydra:runtime.cwd}/src/conf/params
+  init_conditions_dir : src/conf/initial_conditions_o_e #${hydra:runtime.cwd}/src/conf/initial_conditions_o
+  dataset_dir : data_o_e #${hydra:runtime.cwd}/data
+  model_dir : model_o_e #${hydra:runtime.cwd}/model
